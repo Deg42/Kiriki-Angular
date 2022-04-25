@@ -1,4 +1,10 @@
-<div style="text-align: center">
-  <h1>Bienvenido a {{title}}!</h1>
-<app-login-form></app-login-form>
-</div>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="side">
+    <mat-toolbar color="primary">Menu</mat-toolbar>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <app-header></app-header>
+    <router-outlet></router-outlet>
+    <app-footer></app-footer>
+  </mat-sidenav-content>
+</mat-sidenav-container>

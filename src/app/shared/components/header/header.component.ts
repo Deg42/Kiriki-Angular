@@ -6,7 +6,6 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
   isAdmin = false;
   @Output() toggleSidenav = new EventEmitter<void>();
   constructor() { }
