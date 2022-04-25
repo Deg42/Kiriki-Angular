@@ -1,0 +1,11 @@
+{{ isAdmin }} - Role
+<mat-toolbar color="primary">
+    <span>Kiriki</span>
+    <span class="spacer"></span>
+    <div>
+      <a mat-button [routerLink]="'/login'">Login</a>
+      <a mat-button>Logout</a>
+      <a mat-button [routerLink]="'/admin'">Admin</a>
+    </div>
+    <button (click)="isAdmin = !isAdmin">Change</button>
+</mat-toolbar>
