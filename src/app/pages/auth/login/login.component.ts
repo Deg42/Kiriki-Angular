@@ -20,8 +20,7 @@ export class LoginComponent implements OnInit {
     private router: Router
   ) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onLogin() {
     const formValue = this.loginForm.value;

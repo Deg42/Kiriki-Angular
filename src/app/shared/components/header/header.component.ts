@@ -8,10 +8,14 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   isAdmin = false;
+  isLogged= false;
+
   @Output() toggleSidenav = new EventEmitter<void>();
   constructor(private authSvc: AuthService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  this.authSvc.isLogged.subscribe(res => this.isLogged = res);
+}
 
   onToggleSidenav() {
     this.toggleSidenav.emit();

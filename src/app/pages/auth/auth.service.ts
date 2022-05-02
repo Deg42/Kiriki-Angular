@@ -1,4 +1,5 @@
-import { environment } from '../../../environments/environment';
+import { environment } from './../../../environments/environment';
+import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, catchError, map, Observable, throwError } from 'rxjs';
@@ -14,7 +15,7 @@ const helper = new JwtHelperService();
 export class AuthService {
   private loggedIn = new BehaviorSubject<boolean>(false);
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
     //   this.checkToken();
   }
 
@@ -47,6 +48,7 @@ export class AuthService {
   logout() {
     localStorage.removeItem('token');
     this.loggedIn.next(false);
+    this.router.navigate(['/login']);
   }
 
   // private checkToken() {
