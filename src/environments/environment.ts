@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  api_url: "http://api-kiriki.herokuapp.com/api",
+  api_key: "?token=kirikikey"
 };
 
 /*

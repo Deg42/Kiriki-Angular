@@ -9,7 +9,7 @@
       "@pages/*": ["src/app/pages/*"],
       "@admin/*": ["src/app/pages/admin/*"],
       "@auth/*": ["src/app/pages/auth/*"],
-      "@env": ["src/environments/*"],
+      "@env/*": ["src/app/environments/*"],
     },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
