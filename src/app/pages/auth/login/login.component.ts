@@ -10,6 +10,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit, OnDestroy {
+  hide = true;
   private isValidUsername = /^[a-zA-Z0-9]{3,20}$/;
   private suscription: Subscription = new Subscription();
 
@@ -34,8 +35,11 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   onLogin() {
-    const formValue = this.loginForm.value;
+    if (this.loginForm.invalid) {
+      return;
+    }
 
+    const formValue = this.loginForm.value;
     this.suscription.add(
       this.authSvc.login(formValue).subscribe((res) => {
         if (res) {
