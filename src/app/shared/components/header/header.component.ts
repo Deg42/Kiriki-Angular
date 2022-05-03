@@ -12,7 +12,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   isAdmin = false;
   isLogged = false;
 
-  private suscription!: Subscription;
+  private suscription: Subscription = new Subscription();;
 
   @Output() toggleSidenav = new EventEmitter<void>();
   constructor(private authSvc: AuthService) {}

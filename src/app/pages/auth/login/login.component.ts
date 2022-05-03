@@ -10,7 +10,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit, OnDestroy {
-  private suscription!: Subscription;
+  private suscription: Subscription = new Subscription();
 
   loginForm = this.fb.group({
     username: [''],

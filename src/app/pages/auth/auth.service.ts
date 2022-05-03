@@ -16,7 +16,7 @@ export class AuthService {
   private loggedIn = new BehaviorSubject<boolean>(false);
 
   constructor(private http: HttpClient, private router: Router) {
-    //   this.checkToken();
+       this.checkToken();
   }
 
   get  isLogged() : Observable<boolean> {
@@ -29,7 +29,7 @@ export class AuthService {
       .set('password', authData.password);
 
     return this.http
-      .post<UserResponse>(`${environment.api_url}/login`, body.toString(), {
+      .post<UserResponse>(`${environment.api_url}/login_check`, body.toString(), {
         headers: new HttpHeaders().set(
           'Content-Type',
           'application/x-www-form-urlencoded'
@@ -51,13 +51,12 @@ export class AuthService {
     this.router.navigate(['/login']);
   }
 
-  // private checkToken() {
-  //   const userToken = localStorage.getItem('token');
-  //   const isExpired = helper.isTokenExpired(userToken || '');
-  //   console.log('isExpired -> ', isExpired);
+  private checkToken() {
+    const userToken = localStorage.getItem('token');
+    const isExpired = helper.isTokenExpired(userToken || '');
 
-  //   isExpired ? this.logout() : this.loggedIn.next(true);
-  // }
+    isExpired ? this.logout() : this.loggedIn.next(true);
+  }
 
   private saveToken(token: string) {
     localStorage.setItem('token', token);
